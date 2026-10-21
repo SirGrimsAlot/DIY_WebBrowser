@@ -1,21 +1,23 @@
-struct Node{
+use std::collections::{HashMap, HashSet};
+
+pub struct Node{
     children: Vec<Node>,
     node_type: NodeType,
 }
 
-enum NodeType{
+pub enum NodeType{
     Text(String),
     Element(ElementData),
 }
 
-struct ElementData{
+pub struct ElementData{
     tag_name: String,
     attrs: AttrMap,
 }
 
-type AttrMap = HashMap<String, String>;
+pub type AttrMap = HashMap<String, String>;
 
-fn text(data: String) -> Node {
+pub fn text(data: String) -> Node {
     Node {children: Vec::new(), node_type: NodeType::Text(data)}
 }
 
